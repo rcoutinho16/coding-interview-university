@@ -3,9 +3,9 @@ TARGET=main
 #compiler
 CXX=g++
 #compiling flags
-CPPFLAGS=-g -Wall -I.
+CPPFLAGS=-std=c++11 -g -Wall -I.
 #linking flags
-LDFLAGS=-g -Wall -I.
+LDFLAGS=-std=c++11 -g -Wall -I.
 
 #directories
 BIND=bin

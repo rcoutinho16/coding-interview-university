@@ -28,3 +28,4 @@ $(OBJS): $(OBJD)/%.o : $(SRCD)/%.cpp
 clean:
 	$(rm) $(OBJS)
 	$(rm) $(BIND)/$(TARGET)
+	$(rm) obj/*.o

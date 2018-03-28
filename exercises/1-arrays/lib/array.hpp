@@ -71,8 +71,12 @@ public:
 	};
 	
 	T pop(){
-		if(_size > 0){
+		if(this->_size > 0){
 			--_size;
+			//if(_size+1 == _cap/4){
+			//	std::cout << "oi\n";
+			//	_resize();
+			//}
 			return _data[_size+1];
 		}else{
 			throw std::runtime_error("empty array");
@@ -125,13 +129,23 @@ private:
 	unsigned int _cap;
 	
 	void _resize(){
-		T* aux = new T[_cap];
-		memcpy(aux, _data, sizeof(T)*_cap);
-		_cap*=2;
-		delete[] _data;
-		_data = new T[_cap];
-		memcpy(_data, aux, sizeof(T)*_cap/2);
-		delete[] aux;
+		if(_size == _cap){
+			T* aux = new T[_cap];
+			memcpy(aux, _data, sizeof(T)*_cap);
+			_cap*=2;
+			delete[] _data;
+			_data = new T[_cap];
+			memcpy(_data, aux, sizeof(T)*_cap/2);
+			delete[] aux;
+		}else{
+			T* aux = new T[_cap/4];
+			memcpy(aux, _data, sizeof(T)*_size);
+			_cap/=2;
+			delete[] _data;
+			_data = new T[_cap];
+			memcpy(_data, aux, sizeof(T)*_size);
+			delete[] aux;
+		}
 	}
 };
 

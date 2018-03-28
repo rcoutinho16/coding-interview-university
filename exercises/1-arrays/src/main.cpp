@@ -7,7 +7,6 @@ int main(){
     for(int i=0; i<20; ++i){
     	a->push(i);
     }
-    
     a->print();
     std::cout << "size: " << a->size() << std::endl;
     std::cout << "index: " << a->cap() << std::endl << std::endl;
@@ -42,7 +41,6 @@ int main(){
     a->print();
     std::cout << "size: " << a->size() << std::endl;
     std::cout << "index: " << a->cap() << std::endl << std::endl;
-    
     a->del(0);
     a->del(0);
     a->del(0);
@@ -73,10 +71,17 @@ int main(){
     std::cout << "index: " << a->cap() << std::endl << std::endl;
     
     std::cout << a->find(19) << "\n\n";
+    array<int> *b = new array<int>(64);
+    for(int i=0; i<16; ++i){
+        b->push(i);
+    }
+    std::cout << b->cap() << std::endl;
+    std::cout << b->size() << std::endl;
+    b->pop();
+    std::cout << b->cap() << std::endl;
+    std::cout << b->size() << std::endl;
     
-    
-    
-    
+    delete b;
     delete a;
 	return 0;
 }
